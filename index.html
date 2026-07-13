@@ -424,6 +424,21 @@ nav.scrolled {
   line-height: 1.7;
 }
 
+.stats-phone {
+  flex-shrink: 0;
+  width: 140px;
+  height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.35);
+  border: 3px solid rgba(254,248,241,.12);
+}
+.stats-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ─── ABOUT ────────────────────────────────────────────────── */
 .about {
   padding: 100px 40px;
@@ -687,7 +702,7 @@ footer {
   <div class="projects-grid">
 
     <!-- 01 Track to Train -->
-    <a class="project-card tall" data-cat="branding" href="#" target="_self">
+    <a class="project-card tall" data-cat="branding" href="./projects/track-to-train.html">
       <div class="img-wrap">
         <img src="./images/t2t-mockup.jpg" alt="Track to Train" loading="lazy">
       </div>
@@ -699,7 +714,7 @@ footer {
     </a>
 
     <!-- 02 Museum Smart View -->
-    <a class="project-card" data-cat="branding" href="#" target="_self">
+    <a class="project-card" data-cat="branding" href="./projects/museum-smart-view.html">
       <div class="img-wrap">
         <img src="./images/msv-mockup.jpg" alt="Museum Smart View" loading="lazy">
       </div>
@@ -711,31 +726,19 @@ footer {
     </a>
 
     <!-- 03 Argan Jo -->
-    <a class="project-card" data-cat="branding" href="#" target="_self">
+    <a class="project-card" data-cat="branding packaging" href="./projects/argan-jo.html">
       <div class="img-wrap">
         <img src="./images/argan-mockup.jpg" alt="Argan Jo" loading="lazy">
       </div>
       <div class="card-info">
-        <span class="card-tag">Branding · Beauty</span>
+        <span class="card-tag">Branding · Packaging · Beauty</span>
         <h3 class="card-title">Argan Jo</h3>
         <span class="card-link">Vedi progetto</span>
       </div>
     </a>
 
-    <!-- 04 AGENAS + ENAV Riviste -->
-    <a class="project-card wide" data-cat="editoriale" href="#" target="_self">
-      <div class="img-wrap">
-        <img src="./images/agenas-mockup.jpg" alt="Riviste AGENAS" loading="lazy">
-      </div>
-      <div class="card-info">
-        <span class="card-tag">Editoriale · Istituzionale</span>
-        <h3 class="card-title">AGENAS · ENAV — Editorial Design</h3>
-        <span class="card-link">Vedi progetto</span>
-      </div>
-    </a>
-
     <!-- 05 Karma Med -->
-    <a class="project-card" data-cat="branding" href="#" target="_self">
+    <a class="project-card" data-cat="branding" href="./projects/karma-med.html">
       <div class="img-wrap">
         <img src="./images/karma-med.jpg" alt="Karma Med" loading="lazy">
       </div>
@@ -747,7 +750,7 @@ footer {
     </a>
 
     <!-- 06 Locandine Scuola Musica -->
-    <a class="project-card" data-cat="poster" href="#" target="_self">
+    <a class="project-card" data-cat="poster" href="./projects/scuola-musica.html">
       <div class="img-wrap">
         <img src="./images/musica-locandina.jpg" alt="Locandine Scuola Musica" loading="lazy">
       </div>
@@ -759,7 +762,7 @@ footer {
     </a>
 
     <!-- 07 Agsaba Packaging -->
-    <a class="project-card" data-cat="packaging" href="#" target="_self">
+    <a class="project-card" data-cat="packaging" href="./projects/agsaba.html">
       <div class="img-wrap">
         <img src="./images/agsaba.jpg" alt="Agsaba Packaging" loading="lazy">
       </div>
@@ -771,7 +774,7 @@ footer {
     </a>
 
     <!-- 08 ENAV Thinking Cup -->
-    <a class="project-card" data-cat="branding" href="#" target="_self">
+    <a class="project-card" data-cat="branding" href="./projects/enav.html">
       <div class="img-wrap">
         <img src="./images/enav-thinking.jpg" alt="ENAV Thinking Cup" loading="lazy">
       </div>
@@ -783,7 +786,7 @@ footer {
     </a>
 
     <!-- 09 Karma Charter -->
-    <a class="project-card" data-cat="branding" href="#" target="_self">
+    <a class="project-card" data-cat="branding" href="./projects/karma-charter.html">
       <div class="img-wrap">
         <img src="./images/karma-charter.jpg" alt="Karma Charter" loading="lazy">
       </div>
@@ -797,7 +800,7 @@ footer {
     <!-- 10 Edutainment (Behance) -->
     <a class="project-card wide" data-cat="interaction" href="https://www.behance.net/gallery/137400543/Ledutainment-per-la-sostenibilita-ambientale" target="_blank">
       <div class="img-wrap">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/315225137400543.Y3JvcCwxMjAwLDkzOCwwLDg2.png" alt="L'edutainment per la sostenibilità ambientale" loading="lazy">
+        <img src="./images/edutainment-cover.jpg" alt="L'edutainment per la sostenibilità ambientale" loading="lazy">
       </div>
       <div class="card-info">
         <span class="card-tag">Interaction Design · Tesi Magistrale · 2022</span>
@@ -809,7 +812,7 @@ footer {
     <!-- 11 Una pianta per amica (Behance) -->
     <a class="project-card" data-cat="interaction" href="https://www.behance.net/gallery/137055401/Una-pianta-per-amica-green-sensitive-installation" target="_blank">
       <div class="img-wrap">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/6eb79a137055401.6204389877308.png" alt="Una pianta per amica" loading="lazy">
+        <img src="./images/pianta-cover.jpg" alt="Una pianta per amica" loading="lazy">
       </div>
       <div class="card-info">
         <span class="card-tag">Interaction · Arduino · 2022</span>
@@ -821,7 +824,7 @@ footer {
     <!-- 12 Il loro futuro (Behance) -->
     <a class="project-card" data-cat="interaction" href="https://www.behance.net/gallery/136449581/Il-loro-futuro-e-nelle-tue-mani" target="_blank">
       <div class="img-wrap">
-        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9f3878136449581.Y3JvcCwzODM1LDMwMDAsODUsMA.png" alt="Il loro futuro è nelle tue mani" loading="lazy">
+        <img src="./images/futuro-cover.jpg" alt="Il loro futuro è nelle tue mani" loading="lazy">
       </div>
       <div class="card-info">
         <span class="card-tag">Campagna · Illustrazione · 2022</span>
@@ -854,6 +857,9 @@ footer {
   <div class="stats-text">
     <h3>Ospedale Pederzoli — Social Media</h3>
     <p>Gestione del profilo Instagram istituzionale. In un anno il profilo è cresciuto da ~2.000 a oltre 5.400 follower, con reel fino a 98K visualizzazioni organiche.</p>
+  </div>
+  <div class="stats-phone">
+    <img src="./images/pederzoli-instagram.jpg" alt="Instagram Ospedale Pederzoli" loading="lazy">
   </div>
 </div>
 
