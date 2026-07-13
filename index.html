@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alessia Simei — Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #fef8f1;
+  --plum:     #602147;
+  --blue:     #bbd4ef;
+  --text:     #1a0911;
+  --muted:    #9a7285;
+  --dark:     #3a0f28;
+  --border:   rgba(96,33,71,.12);
+  --card-bg:  #f4eae0;
+  --sans:     'Inter', sans-serif;
+  --display:  'Syne', sans-serif;
+  --ease:     cubic-bezier(.25,.46,.45,.94);
+  --radius:   20px;
+  --radius-lg: 28px;
+  --radius-pill: 100px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── NAV ──────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  transition: background .4s var(--ease), padding .4s var(--ease), box-shadow .4s;
+}
+
+nav.scrolled {
+  background: var(--bg);
+  padding: 16px 40px;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-logo {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--plum);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--muted);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  transition: background .25s, color .25s;
+}
+.nav-links a:hover {
+  background: var(--blue);
+  color: var(--text);
+}
+
+/* ─── HERO ─────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blob decorativo */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 520px; height: 520px;
+  background: var(--blue);
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  opacity: .45;
+  pointer-events: none;
+}
+
+.hero-tag {
+  position: absolute;
+  top: 140px;
+  right: 48px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+}
+
+.hero-headline {
+  font-family: var(--display);
+  font-size: clamp(52px, 8vw, 120px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  max-width: 950px;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.hero-headline .accent {
+  color: var(--plum);
+  display: inline-block;
+  background: var(--blue);
+  border-radius: 16px;
+  padding: 0 16px;
+  line-height: 1.05;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: 64px;
+  position: relative;
+}
+
+.hero-bio {
+  max-width: 500px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.hero-cta {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--plum);
+  color: var(--bg);
+  padding: 16px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  transition: background .25s, transform .25s;
+}
+.hero-cta:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+.hero-cta::after { content: '↓'; font-size: 16px; }
+
+/* ─── WORK SECTION ─────────────────────────────────────────── */
+.work {
+  padding: 100px 40px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+
+/* ─── FILTER ───────────────────────────────────────────────── */
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+
+.filter-btn:hover { border-color: var(--plum); color: var(--plum); }
+.filter-btn.active {
+  background: var(--plum);
+  border-color: var(--plum);
+  color: var(--bg);
+}
+
+/* ─── PROJECTS GRID ────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(96,33,71,.18);
+}
+
+.project-card.tall { aspect-ratio: 3/4; grid-row: span 2; }
+.project-card.wide { grid-column: span 2; aspect-ratio: 16/9; }
+
+.project-card .img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.project-card .img-wrap img {
+  transition: transform .6s var(--ease);
+}
+.project-card:hover .img-wrap img { transform: scale(1.05); }
+
+/* Placeholder (no image) */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+}
+.placeholder span {
+  font-family: var(--display);
+  font-size: clamp(22px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: rgba(96,33,71,.18);
+  text-align: center;
+  padding: 32px;
+  line-height: 1.1;
+}
+
+.ph-branding    { background: #f0e6f4; }
+.ph-social      { background: #e6f0f4; }
+.ph-editorial   { background: #edf4e6; }
+.ph-interaction { background: var(--blue); }
+.ph-interaction span { color: rgba(96,33,71,.4); }
+
+/* ─── CARD OVERLAY ─────────────────────────────────────────── */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(to top, rgba(26,9,17,.88) 0%, rgba(26,9,17,.0) 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.project-card:hover .card-overlay { opacity: 1; }
+
+/* Info sempre visibile in basso */
+.card-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background: linear-gradient(to top, rgba(26,9,17,.78) 0%, transparent 100%);
+}
+
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(187,212,239,.25);
+  border: 1px solid rgba(187,212,239,.4);
+  backdrop-filter: blur(6px);
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-family: var(--display);
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 700;
+  color: #fef8f1;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s .08s, transform .3s .08s;
+}
+.project-card:hover .card-link { opacity: 1; transform: translateY(0); }
+.card-link::after { content: '→'; font-size: 13px; transition: transform .25s; }
+.project-card:hover .card-link::after { transform: translateX(4px); }
+
+.project-card.hidden { display: none; }
+
+/* ─── STATS BANNER ─────────────────────────────────────────── */
+.stats-banner {
+  margin: 0 40px 80px;
+  background: var(--plum);
+  border-radius: var(--radius-lg);
+  padding: 48px 64px;
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  color: var(--bg);
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-num {
+  font-family: var(--display);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(254,248,241,.55);
+  letter-spacing: .04em;
+}
+
+.stats-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(254,248,241,.15);
+  flex-shrink: 0;
+}
+
+.stats-text {
+  flex: 1;
+  min-width: 240px;
+}
+
+.stats-text h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+
+.stats-text p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(254,248,241,.6);
+  line-height: 1.7;
+}
+
+/* ─── ABOUT ────────────────────────────────────────────────── */
+.about {
+  padding: 100px 40px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--plum);
+  background: rgba(96,33,71,.08);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 28px;
+}
+
+.about-headline {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.015em;
+  margin-bottom: 28px;
+}
+
+.about-text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.skill-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: background .2s;
+}
+.skill-item:hover { background: var(--blue); }
+
+/* ─── CONTACT ──────────────────────────────────────────────── */
+.contact {
+  margin: 0 40px 80px;
+  background: var(--dark);
+  border-radius: var(--radius-lg);
+  padding: 100px 64px;
+  color: var(--bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: var(--blue);
+  border-radius: 50%;
+  opacity: .12;
+  pointer-events: none;
+}
+
+.contact-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(187,212,239,.12);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 40px;
+}
+
+.contact-headline {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin-bottom: 48px;
+}
+
+.contact-headline .accent {
+  color: var(--blue);
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  color: var(--plum);
+  padding: 18px 36px;
+  border-radius: var(--radius-pill);
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  transition: transform .25s, box-shadow .25s;
+}
+.contact-email:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(96,33,71,.3);
+}
+.contact-email::after { content: '✉'; font-size: 20px; }
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
+footer {
+  background: var(--dark);
+  color: rgba(254,248,241,.3);
+  padding: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(254,248,241,.06);
+  font-size: 12px;
+  letter-spacing: .05em;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin: 0 40px 40px;
+}
+
+.footer-logo {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(254,248,241,.6);
+  letter-spacing: -.01em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: rgba(254,248,241,.3);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(254,248,241,.1);
+  transition: all .2s;
+}
+.footer-links a:hover {
+  color: var(--bg);
+  border-color: rgba(254,248,241,.3);
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card.wide { grid-column: span 2; }
+  .project-card.tall { grid-row: auto; aspect-ratio: 4/3; }
+  .about { grid-template-columns: 1fr; gap: 48px; }
+  .stats-banner { gap: 32px; padding: 40px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+  .nav-links { gap: 4px; }
+  .nav-links a { padding: 6px 12px; font-size: 12px; }
+  .hero { padding: 0 20px 56px; }
+  .hero::before { width: 280px; height: 280px; right: -60px; top: -40px; }
+  .hero-tag { display: none; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-cta { margin-left: 0; }
+  .work { padding: 64px 20px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 12px; }
+  .project-card.wide,
+  .project-card.tall { grid-column: auto; grid-row: auto; aspect-ratio: 4/3; }
+  .stats-banner { margin: 0 20px 60px; padding: 32px; gap: 24px; }
+  .stats-divider { display: none; }
+  .about { padding: 64px 20px; }
+  .contact { margin: 0 20px 60px; padding: 64px 24px; }
+  footer { margin: 0 20px 20px; flex-direction: column; gap: 20px; text-align: center; }
+}
+
+/* ─── FADE-IN ───────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp .8s cubic-bezier(.25,.46,.45,.94) forwards; }
+.delay-1 { animation-delay: .15s; }
+.delay-2 { animation-delay: .3s; }
+</style>
+</head>
+
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">AS</a>
+  <ul class="nav-links">
+    <li><a href="#lavori">Progetti</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <span class="hero-tag">Designer · Roma</span>
+
+  <h1 class="hero-headline fade-up">
+    Design<br>che <span class="accent">comunica.</span>
+  </h1>
+
+  <div class="hero-bottom">
+    <p class="hero-bio fade-up delay-1">
+      Credo che il design sia uno strumento per comunicare, non solo per creare qualcosa di bello. Identità visive, contenuti editoriali, materiali promozionali e comunicazione digitale — dal concept alla consegna.
+    </p>
+    <a href="#lavori" class="hero-cta fade-up delay-2">Vedi i progetti</a>
+  </div>
+</section>
+
+
+<!-- ─── WORK ──────────────────────────────────────────── -->
+<section class="work" id="lavori">
+  <div class="section-header">
+    <h2 class="section-title">Progetti selezionati</h2>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tutti</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="editoriale">Editoriale</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="poster">Poster</button>
+      <button class="filter-btn" data-filter="packaging">Packaging</button>
+      <button class="filter-btn" data-filter="interaction">Interaction</button>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- 01 Track to Train -->
+    <a class="project-card tall" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/t2t-mockup.jpg" alt="Track to Train" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Branding · Identity</span>
+        <h3 class="card-title">Track to Train</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 02 Museum Smart View -->
+    <a class="project-card" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/msv-mockup.jpg" alt="Museum Smart View" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Branding · App</span>
+        <h3 class="card-title">Museum Smart View</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 03 Argan Jo -->
+    <a class="project-card" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/argan-mockup.jpg" alt="Argan Jo" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Branding · Beauty</span>
+        <h3 class="card-title">Argan Jo</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 04 AGENAS + ENAV Riviste -->
+    <a class="project-card wide" data-cat="editoriale" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/agenas-mockup.jpg" alt="Riviste AGENAS" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Editoriale · Istituzionale</span>
+        <h3 class="card-title">AGENAS · ENAV — Editorial Design</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 05 Karma Med -->
+    <a class="project-card" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/karma-med.jpg" alt="Karma Med" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Branding · Salute</span>
+        <h3 class="card-title">Karma Med</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 06 Locandine Scuola Musica -->
+    <a class="project-card" data-cat="poster" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/musica-locandina.jpg" alt="Locandine Scuola Musica" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Poster Design · Musica</span>
+        <h3 class="card-title">Scuola Popolare di Musica Donna Olimpia</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 07 Agsaba Packaging -->
+    <a class="project-card" data-cat="packaging" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/agsaba.jpg" alt="Agsaba Packaging" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Packaging Design</span>
+        <h3 class="card-title">Agsaba</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 08 ENAV Thinking Cup -->
+    <a class="project-card" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/enav-thinking.jpg" alt="ENAV Thinking Cup" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Logo · Event Design</span>
+        <h3 class="card-title">ENAV — Thinking Cup</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 09 Karma Charter -->
+    <a class="project-card" data-cat="branding" href="#" target="_self">
+      <div class="img-wrap">
+        <img src="./images/karma-charter.jpg" alt="Karma Charter" loading="lazy">
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Logo Design</span>
+        <h3 class="card-title">Karma Charter</h3>
+        <span class="card-link">Vedi progetto</span>
+      </div>
+    </a>
+
+    <!-- 10 Edutainment (Behance) -->
+    <a class="project-card wide" data-cat="interaction" href="https://www.behance.net/gallery/137400543/Ledutainment-per-la-sostenibilita-ambientale" target="_blank">
+      <div class="placeholder ph-interaction">
+        <span>L'edutainment per la sostenibilità ambientale</span>
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Interaction Design · Tesi Magistrale · 2022</span>
+        <h3 class="card-title">L'edutainment per la sostenibilità ambientale</h3>
+        <span class="card-link">Vedi su Behance</span>
+      </div>
+    </a>
+
+    <!-- 11 Una pianta per amica (Behance) -->
+    <a class="project-card" data-cat="interaction" href="https://www.behance.net/gallery/137055401/Una-pianta-per-amica-green-sensitive-installation" target="_blank">
+      <div class="placeholder ph-interaction">
+        <span>Una pianta per amica</span>
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Interaction · Arduino · 2022</span>
+        <h3 class="card-title">Una pianta per amica</h3>
+        <span class="card-link">Vedi su Behance</span>
+      </div>
+    </a>
+
+    <!-- 12 Il loro futuro (Behance) -->
+    <a class="project-card" data-cat="interaction" href="https://www.behance.net/gallery/136449581/Il-loro-futuro-e-nelle-tue-mani" target="_blank">
+      <div class="placeholder ph-interaction">
+        <span>Il loro futuro è nelle tue mani</span>
+      </div>
+      <div class="card-info">
+        <span class="card-tag">Campagna · Illustrazione · 2022</span>
+        <h3 class="card-title">Il loro futuro è nelle tue mani</h3>
+        <span class="card-link">Vedi su Behance</span>
+      </div>
+    </a>
+
+  </div><!-- /projects-grid -->
+</section>
+
+
+<!-- ─── STATS BANNER (Social Pederzoli) ──────────────── -->
+<div class="stats-banner" id="social">
+  <div class="stat">
+    <span class="stat-num">+168%</span>
+    <span class="stat-label">crescita follower</span>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat">
+    <span class="stat-num">5.4K</span>
+    <span class="stat-label">follower raggiunti</span>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stat">
+    <span class="stat-num">85K</span>
+    <span class="stat-label">views / 30 giorni</span>
+  </div>
+  <div class="stats-divider"></div>
+  <div class="stats-text">
+    <h3>Ospedale Pederzoli — Social Media</h3>
+    <p>Gestione del profilo Instagram istituzionale. In un anno il profilo è cresciuto da ~2.000 a oltre 5.400 follower, con reel fino a 98K visualizzazioni organiche.</p>
+  </div>
+</div>
+
+
+<!-- ─── ABOUT ──────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div>
+    <span class="about-label">Chi sono</span>
+    <h2 class="about-headline">Lavoro con realtà di settori diversi, seguendo ogni progetto con cura.</h2>
+    <p class="about-text">
+      Credo che il design sia uno strumento per comunicare, non solo per creare qualcosa di bello. Per questo progetto identità visive, contenuti editoriali, materiali promozionali e comunicazione digitale.
+    </p>
+    <p class="about-text">
+      Dal concept alla consegna, ogni scelta ha una ragione. Ogni progetto, una voce.
+    </p>
+  </div>
+
+  <div>
+    <span class="about-label">Competenze</span>
+    <div class="skills-grid">
+      <div class="skill-item">Brand Identity</div>
+      <div class="skill-item">Editorial Design</div>
+      <div class="skill-item">Social Media</div>
+      <div class="skill-item">Poster & Print</div>
+      <div class="skill-item">Packaging</div>
+      <div class="skill-item">Interaction Design</div>
+      <div class="skill-item">Illustrazione</div>
+      <div class="skill-item">Art Direction</div>
+    </div>
+
+    <br>
+    <span class="about-label" style="margin-top: 8px;">Strumenti</span>
+    <div class="skills-grid" style="margin-top: 16px;">
+      <div class="skill-item">Illustrator</div>
+      <div class="skill-item">InDesign</div>
+      <div class="skill-item">Photoshop</div>
+      <div class="skill-item">After Effects</div>
+      <div class="skill-item">Figma</div>
+      <div class="skill-item">Affinity Designer</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── CONTACT ───────────────────────────────────────── -->
+<section class="contact" id="contatti">
+  <span class="contact-label">Iniziamo a lavorare insieme</span>
+  <h2 class="contact-headline">Hai un<br><span class="accent">progetto?</span></h2>
+  <a class="contact-email" href="mailto:alessia.simei@gmail.com">alessia.simei@gmail.com</a>
+</section>
+
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <span class="footer-logo">Alessia Simei</span>
+  <ul class="footer-links">
+    <li><a href="https://www.behance.net/alessiasimei" target="_blank">Behance</a></li>
+    <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:alessia.simei@gmail.com">Email</a></li>
+  </ul>
+  <span>© 2025 Alessia Simei</span>
+</footer>
+
+
+<!-- ─── JS ────────────────────────────────────────────── -->
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.cat !== f);
+    });
+  });
+});
+</script>
+
+</body>
+</html>
